@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Greenquill Garden</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5a7247;
+            --secondary: #a8b8a0;
+            --accent: #c19a6b;
+            --light: #f8f5f0;
+            --dark: #3a3a3a;
+            --highlight: #e8d8b5;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            background-color: var(--light);
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('p3.jpeg');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            border-bottom: 12px solid var(--accent);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--primary);
+        }
+        
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            margin: 20px auto;
+        }
+        
+        .contact-point {
+            background-color: white;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .footer-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        .contact-form {
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        input, select, textarea {
+            border: 1px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold">
+                    <span class="text-primary" style="font-family: 'Playfair Display', serif;">Greenquill</span>
+                    <span class="text-secondary" style="font-family: 'Playfair Display', serif;">Garden</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Home</a>
+                    <a href="privacy.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Privacy</a>
+                    <a href="terms.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Terms & Conditions</a>
+                    <a href="cookies.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Cookies</a>
+                    <a href="contact.html" class="nav-link active text-primary transition duration-300" aria-current="page">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Contact Us</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">We'd love to hear from you and help with your garden needs</p>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="contact-form">
+                <div class="form-header text-center">
+                    <h2 class="text-2xl font-semibold mb-2">Get In Touch</h2>
+                    <p>Fill out the form below and we'll respond within 24 hours</p>
+                </div>
+                <div class="bg-gray-50 p-8">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="consultation">Garden Consultation</option>
+                                    <option value="design">Design Services</option>
+                                    <option value="maintenance">Maintenance Services</option>
+                                    <option value="products">Product Inquiry</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="btn-primary text-white px-10 py-3 rounded-full text-lg font-semibold">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Contact Information</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Multiple ways to reach our gardening experts</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl text-accent mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Visit Us</h3>
+                    <p class="text-gray-700">47 W 13th St<br>New York, NY 10011<br>USA</p>
+                    <p class="text-gray-700 mt-4">Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl text-accent mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Call Us</h3>
+                    <p class="text-gray-700">Main: (123) 456-7890<br>Consultations: (123) 456-7891<br>Support: (123) 456-7892</p>
+                    <p class="text-gray-700 mt-4">Emergency service calls<br>available 24/7 for<br>existing clients</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-4xl text-accent mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Email Us</h3>
+                    <p class="text-gray-700">General: info@greenquillgarden.com<br>Sales: sales@greenquillgarden.com<br>Support: support@greenquillgarden.com</p>
+                    <p class="text-gray-700 mt-4">Response time:<br>Within 24 hours<br>for all inquiries</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Frequently Asked Questions</h3>
+                
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">1. How do I schedule a garden consultation?</h4>
+                    <p class="text-gray-700">You can schedule a consultation by calling our office, using the contact form on this page, or visiting our showroom during business hours. Our team will work with you to find a convenient time for an on-site visit or virtual consultation. We recommend scheduling at least two weeks in advance during peak seasons.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">2. What information should I provide when requesting a quote?</h4>
+                    <p class="text-gray-700">For accurate quotes, please provide details about your property size, existing landscape features, specific plants or materials you're interested in, and any special requirements. Photos of your space are extremely helpful. Our designers may request a site visit for complex projects to ensure the quote reflects all aspects of your vision.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">3. How long does the design process typically take?</h4>
+                    <p class="text-gray-700">The design process varies based on project complexity. Simple consultations may be completed in one visit, while comprehensive designs for large properties typically take 4-6 weeks from initial consultation to final plan delivery. We'll provide a timeline estimate after our initial meeting and keep you updated throughout the process.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">4. Do you offer virtual consultations?</h4>
+                    <p class="text-gray-700">Yes, we offer virtual consultations via video call for clients who prefer remote services or are located outside our immediate service area. These sessions include the same expert advice as in-person visits, with follow-up materials sent digitally. You'll need to provide photos and measurements of your space beforehand for the most productive consultation.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">5. What are your payment terms for design services?</h4>
+                    <p class="text-gray-700">We require a 50% deposit to begin design work, with the balance due upon delivery of final plans. For large projects, we may offer installment payments. We accept all major credit cards, checks, and bank transfers. Detailed invoices are provided for all services, and we're happy to discuss payment plans for budget-conscious clients.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">6. How do I care for plants purchased from your nursery?</h4>
+                    <p class="text-gray-700">All plants purchased from our nursery come with detailed care instructions specific to each species. Our horticulturists are also available for follow-up questions. We recommend scheduling a post-purchase consultation to ensure your plants thrive, especially if you're new to gardening or have challenging growing conditions.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">7. What's your policy on plant replacements or guarantees?</h4>
+                    <p class="text-gray-700">We offer a 90-day guarantee on most plants when proper care instructions are followed. If a plant fails to thrive due to nursery-related issues, we'll replace it at no cost. Please bring the plant (or clear photos) and your receipt to our nursery for evaluation. This guarantee doesn't cover damage from extreme weather, pests, or improper care.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">8. Can you work within my homeowners association (HOA) guidelines?</h4>
+                    <p class="text-gray-700">Absolutely. Our designers are experienced in creating landscapes that meet HOA requirements while reflecting your personal style. Please provide your HOA's landscaping guidelines during our initial consultation. We'll handle all necessary submissions and revisions to ensure your project complies while achieving your vision.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">9. Do you provide maintenance services after installation?</h4>
+                    <p class="text-gray-700">Yes, we offer ongoing maintenance services to ensure your garden remains healthy and beautiful. Our maintenance packages can be customized to fit your needs, whether you require weekly, bi-weekly, or monthly visits. We can handle everything from lawn care to seasonal plantings, ensuring your landscape thrives year-round.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">10. What types of plants do you recommend for my area?</h4>
+                    <p class="text-gray-700">Our team is knowledgeable about local climate conditions and soil types, allowing us to recommend plants that will thrive in your specific environment. We focus on native and drought-resistant species that require less maintenance and are more resilient to local pests and diseases. During your consultation, we can discuss the best options for your garden.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">11. How can I prepare my garden for winter?</h4>
+                    <p class="text-gray-700">Preparing your garden for winter involves several steps, including mulching, pruning, and protecting sensitive plants. We recommend scheduling a winter preparation consultation where our experts can provide tailored advice based on your garden's specific needs. This ensures your plants are well-protected and ready to thrive in the spring.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">12. Can you help with landscape design for commercial properties?</h4>
+                    <p class="text-gray-700">Yes, we specialize in landscape design for both residential and commercial properties. Our team understands the unique requirements of commercial spaces and can create designs that enhance curb appeal, comply with zoning regulations, and provide functional outdoor areas for employees and customers. Contact us to discuss your project.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">13. What should I do if I have a pest problem in my garden?</h4>
+                    <p class="text-gray-700">If you suspect a pest problem, it's important to act quickly. We recommend contacting our team for a pest assessment. Our experts can identify the issue and recommend appropriate treatments, whether organic or chemical, to protect your plants. Regular maintenance visits can also help prevent pest issues before they arise.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">14. Do you offer workshops or classes on gardening?</h4>
+                    <p class="text-gray-700">Yes, we offer a variety of workshops and classes throughout the year, covering topics such as plant care, landscape design, and sustainable gardening practices. These sessions are designed for all skill levels, from beginners to experienced gardeners. Check our website for upcoming events and registration details.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">15. How do I choose the right mulch for my garden?</h4>
+                    <p class="text-gray-700">Choosing the right mulch depends on your garden's needs and aesthetic preferences. We can help you select from various options, including organic mulches like wood chips and straw, or inorganic options like gravel and rubber. Each type has its benefits, such as moisture retention, weed suppression, and visual appeal. Schedule a consultation for personalized advice.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">16. What are the benefits of native plants?</h4>
+                    <p class="text-gray-700">Native plants are adapted to local conditions, making them more resilient to pests and diseases. They require less water and maintenance compared to non-native species, and they support local wildlife, including pollinators. Incorporating native plants into your landscape can enhance biodiversity and create a sustainable garden environment.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">17. How can I improve soil quality in my garden?</h4>
+                    <p class="text-gray-700">Improving soil quality involves testing your soil, adding organic matter, and ensuring proper drainage. We recommend conducting a soil test to determine nutrient levels and pH. Based on the results, we can suggest amendments such as compost, fertilizers, or soil conditioners to enhance your garden's health and productivity.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">18. Can you assist with irrigation system installation?</h4>
+                    <p class="text-gray-700">Yes, we offer irrigation system design and installation services. Our team can assess your landscape's watering needs and recommend the most efficient system, whether it's drip irrigation, sprinklers, or a combination. Proper irrigation is crucial for maintaining a healthy garden, especially during dry spells.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">19. What is your policy on cancellations or rescheduling?</h4>
+                    <p class="text-gray-700">We understand that plans can change. If you need to cancel or reschedule an appointment, please notify us at least 24 hours in advance to avoid any cancellation fees. We strive to accommodate your schedule and will work with you to find a new time that suits your needs.</p>
+                </div>
+
+                <div class="contact-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">20. How do I stay updated on your services and promotions?</h4>
+                    <p class="text-gray-700">To stay informed about our services, promotions, and upcoming events, we recommend signing up for our newsletter on our website. You can also follow us on social media platforms for regular updates, gardening tips, and inspiration. We love engaging with our community and sharing our passion for gardening!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="py-10 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">Visit us at: 47 W 13th St, New York, NY 10011, USA</p>
+            <p class="mb-4">Phone: (123) 456-7890</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                <a href="cookies.html" class="footer-link">Cookies</a>
+                <a href="contact.html" class="footer-link active">Contact Us</a>
+            </div>
+            <p class="mt-6">© 2023 Greenquill Garden. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

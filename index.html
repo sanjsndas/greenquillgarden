@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenquill Garden | Write Nature's Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5a7247;  /* Deep moss green */
+            --secondary: #a8b8a0; /* Soft sage */
+            --accent: #c19a6b;   /* Warm taupe */
+            --light: #f8f5f0;    /* Creamy parchment */
+            --dark: #3a3a3a;     /* Soft black */
+            --highlight: #e8d8b5; /* Golden light */
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            background-color: var(--light);
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('p3.jpeg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            border-bottom: 12px solid var(--accent);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--primary);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 8px;
+            overflow: hidden;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            font-family: 'Playfair Display', serif;
+            color: var(--highlight);
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .gallery-img {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            filter: saturate(80%);
+            border: 8px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05) rotate(0.5deg);
+            filter: saturate(100%);
+            z-index: 10;
+        }
+        
+        .footer-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        .consultant-section {
+            background-color: white;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .consultant-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30%;
+            background-color: var(--highlight);
+            opacity: 0.1;
+            z-index: -1;
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .form-section {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        input, select, textarea {
+            border: 1px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.3);
+        }
+        
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            margin: 20px auto;
+        }
+        
+        .price-card {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid var(--accent);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .price-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .price-popular {
+            border: 2px solid var(--accent);
+            position: relative;
+        }
+        
+        .price-popular-flag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 60vh;
+            }
+            
+            .consultant-section:before {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold">
+                    <span class="text-primary" style="font-family: 'Playfair Display', serif;">Greenquill</span>
+                    <span class="text-secondary" style="font-family: 'Playfair Display', serif;">Garden</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html"  class="nav-link active text-primary transition duration-300" aria-current="page">Home</a>
+                    <a href="privacy.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Privacy</a>
+                    <a href="terms.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Terms & Conditions</a>
+                    <a href="cookies.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Cookies</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Write Nature's Story</h1>
+            <p class="text-xl md:text-3xl mb-10 max-w-3xl mx-auto" style="font-family: 'Playfair Display', serif;">Where every garden is a chapter in earth's poetic chronicle</p>
+            <a href="#consultation" class="btn-primary text-white px-10 py-4 rounded-full text-lg font-semibold inline-block uppercase tracking-wider">Begin Your Story</a>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">About Greenquill Garden</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-12">
+                    <img src="p1.png" alt="Garden Design" class="rounded-lg shadow-xl w-full transform rotate-1">
+                </div>
+                <div class="md:w-1/2" style="max-width: 600px;">
+                    <h3 class="text-3xl font-semibold text-secondary mb-6">Our Botanical Narrative</h3>
+                    <p class="text-gray-700 mb-6">Inspired by the quiet poetry of growing things, Greenquill Garden was founded by literary scholar-turned-horticulturist Eleanor Green in 2008. What began as a small consultancy blending garden design with narrative theory has blossomed into a full-service practice that approaches each landscape as a living manuscript awaiting its perfect composition.</p>
+                    <p class="text-gray-700 mb-8">We specialize in creating gardens that unfold like well-crafted prose—with careful attention to rhythm, contrast, and emotional resonance between spaces.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-accent">
+                            <h4 class="font-semibold text-primary mb-3">Design Philosophy</h4>
+                            <p class="text-gray-700 text-sm">Gardens as literary compositions with visual rhythm and narrative depth</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-accent">
+                            <h4 class="font-semibold text-primary mb-3">Approach</h4>
+                            <p class="text-gray-700 text-sm">Harmonizing ecological wisdom with aesthetic intention</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Our Services</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Comprehensive garden services that cultivate beauty and meaning</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Service Row 1 -->
+                <div class="service-card p-6">
+                    <div class="relative overflow-hidden rounded-lg mb-6 h-48">
+                        <img src="s1.jpeg" alt="Poetic Design" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Poetic Design</h3>
+                    <p class="text-gray-700 mb-5">We compose gardens with the narrative flow of literature—creating visual stanzas through planting beds, punctuating with specimen trees, and crafting transitional passages between spaces.</p>
+                    <ul class="mb-6 space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-leaf text-accent mr-2 mt-1"></i>
+                            <span>Seasonally evolving color palettes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-book text-accent mr-2 mt-1"></i>
+                            <span>Thematic garden narratives</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-pen-fancy text-accent mr-2 mt-1"></i>
+                            <span>Custom planting poetry</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary font-medium inline-flex items-center group">
+                        Explore design
+                        <i class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Row 2 -->
+                <div class="service-card p-6">
+                    <div class="relative overflow-hidden rounded-lg mb-6 h-48">
+                        <img src="s2.jpeg" alt="Seasonal Stewardship" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Seasonal Stewardship</h3>
+                    <p class="text-gray-700 mb-5">Like attentive editors, we guide your garden through its annual revisions—pruning for clarity, amplifying strong elements, and nurturing emerging beauty each season.</p>
+                    <ul class="mb-6 space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-snowflake text-ac cent mr-2 mt-1"></i>
+                            <span>Winter structure planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-seedling text-accent mr-2 mt-1"></i>
+                            <span>Spring rejuvenation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-apple-alt text-accent mr-2 mt-1"></i>
+                            <span>Autumn transitions</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary font-medium inline-flex items-center group">
+                        Learn about care 
+                        <i class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service Row 3 -->
+                <div class="service-card p-6">
+                    <div class="relative overflow-hidden rounded-lg mb-6 h-48">
+                        <img src="s3.jpeg" alt="Urban Greening" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Urban Greening</h3>
+                    <p class="text-gray-700 mb-5">We craft green spaces where concrete dominates—transforming walls into living tapestries, rooftops into pastoral escapes, and balconies into intimate garden rooms through thoughtful design.</p>
+                    <ul class="mb-6 space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-water text-accent mr-2 mt-1"></i>
+                            <span>Living walls & vertical gardens</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-umbrella-beach text-accent mr-2 mt-1"></i>
+                            <span>Rooftop retreats</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-spa text-accent mr-2 mt-1"></i>
+                            <span>Balcony sanctuaries</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary font-medium inline-flex items-center group">
+                        Discover urban solutions
+                        <i class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service Row 4 -->
+                <div class="service-card p-6">
+                    <div class="relative overflow-hidden rounded-lg mb-6 h-48">
+                        <img src="s4.jpeg" alt="Garden Maintenance" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Garden Maintenance</h3>
+                    <p class="text-gray-700 mb-5">Regular upkeep to ensure your garden remains vibrant and healthy throughout the seasons, including weeding, mulching, and seasonal planting.</p>
+                    <ul class="mb-6 space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-tools text-accent mr-2 mt-1"></i>
+                            <span>Weeding and mulching</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-seedling text-accent mr-2 mt-1"></i>
+                            <span>Seasonal planting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-water text-accent mr-2 mt-1"></i>
+                            <span>Irrigation management</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary font-medium inline-flex items-center group">
+                        Learn about maintenance
+                        <i class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Price List Section -->
+            <div class="text-center mt-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Pricing</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Transparent pricing for our services</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Standard Consultation</h3>
+                        <p class="text-lg font-bold">$250</p>
+                    </div>
+                </div>
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Premium Consultation</h3>
+                        <p class="text-lg font-bold">$450</p>
+                    </div>
+                </div>
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Garden Design</h3>
+                        <p class="text-lg font-bold">$1,200</p>
+                    </div>
+                </div>
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Seasonal Maintenance</h3>
+                        <p class="text-lg font-bold">$150/month</p>
+                    </div>
+                </div>
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Urban Greening Project</h3>
+                        <p class="text-lg font-bold">$2,500</p>
+                    </div>
+                </div>
+                <div class="price-card p-6">
+                    <div class="price-header text-center">
+                        <h3 class="text-2xl font-semibold">Custom Planting Plan</h3>
+                        <p class="text-lg font-bold">$300</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultant Section -->
+    <section id="consultation" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Garden Consultation</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Let us help you articulate your garden's unique narrative through expert guidance and personalized design.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Consultant Content -->
+                <div class="consultant-section p-8 rounded-lg">
+                    <h3 class="text-3xl font-semibold text-secondary mb-6">The Greenquill Method</h3>
+                    
+                    <p class="mb-6 text-gray-700">Our consultations are tailored to uncover the hidden potential of your space. We listen to your vision and assess the unique characteristics of your garden, crafting a narrative that resonates with your personal style and the environment.</p>
+                    
+                    <div class="mb-8">
+                        <img src="p2.jpeg" alt="Consultation" class="rounded-lg mb-4 w-full">
+                        <p class="text-sm text-gray-600">Our lead designer Sarah examines plant health during a consultation</p>
+                    </div>
+                    
+                    <h4 class="text-xl font-semibold text-primary mb-3">What to Expect</h4>
+                    <ul class="mb-6 pl-5 space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>90-minute in-depth site analysis and discussion</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Assessment of soil, light, and microclimate conditions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Personalized plant recommendations tailored to your aesthetic</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                            <span>Seasonal care strategies for long-term success</span>
+                        </li>
+                    </ul>
+                    
+                    <p class="mb-6 text-gray-700">Our consultations have helped over 600 clients transform their outdoor spaces. From tiny balcony gardens to sprawling estates, we approach each project with the same literary attention to detail and narrative flow.</p>
+                    
+                    <div class="bg-light p-6 rounded-lg mb-6">
+                        <h4 class="text-xl font-semibold text-primary mb-3">Consultation Packages</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <h5 class="font-semibold text-secondary mb-2">Standard Consultation</h5>
+                                <p class="text-gray-700 text-sm mb-2">Perfect for new gardens or redesigns</p>
+                                <p class="font-bold text-primary">$250</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <h5 class="font-semibold text-secondary mb-2">Premium Consultation</h5>
+                                <p class="text-gray-700 text-sm mb-2">Includes 3D rendering and plant list</p>
+                                <p class="font-bold text-primary">$450</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-700">After our consultation, you'll receive a detailed written report within one week, complete with our recommendations, plant suggestions, and implementation timeline. Think of it as your garden's first draft—ready for you to edit and bring to life.</p>
+                </div>
+                
+                <!-- Form Section -->
+                <div>
+                    <div class="form-section">
+                        <div class="form-header text-white p-8 rounded-t-lg">
+                            <h3 class="text-2xl font-semibold mb-2">Schedule Your Consultation</h3>
+                            <p>Let's begin writing your garden's story together</p>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-b-lg shadow-sm">
+                            <form>
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="service" class="block text-gray-700 font-medium mb-2">Service Interest</label>
+                                    <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                                        <option value="">Select a service</option>
+                                        <option value="design">Garden Design</option>
+                                        <option value="maintenance">Seasonal Maintenance</option>
+                                        <option value="urban">Urban Greening</option>
+                                        <option value="consultation">Consultation Only</option>
+                                    </select>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="date" class="block text-gray-700 font-medium mb-2">Preferred Date</label>
+                                    <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                                <button type="submit" class="btn-primary text-white px-8 py-3 rounded-full text-lg font-semibold">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Client Feedback</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Hear from those who have transformed their spaces with us</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"Greenquill Garden transformed my backyard into a sanctuary. Their attention to detail and understanding of my vision was remarkable!"</p>
+                    <p class="font-semibold text-secondary">- Emily R.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"The consultation process was enlightening. I never knew my garden could tell such a beautiful story until Greenquill helped me see it!"</p>
+                    <p class="font-semibold text-secondary">- Mark T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Gardening Tips</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">Simple advice to nurture your green space</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-light p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-secondary mb-4">Know Your Soil</h3>
+                    <p class="text-gray-700">Understanding your soil type is crucial for selecting the right plants and ensuring their health.</p>
+                </div>
+                <div class="bg-light p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-secondary mb-4">Water Wisely</h3>
+                    <p class="text-gray-700">Water early in the morning or late in the evening to minimize evaporation and ensure deep root hydration.</p>
+                </div>
+                <div class="bg-light p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-secondary mb-4">Embrace Native Plants</h3>
+                    <p class="text-gray-700">Native plants are adapted to your local climate and soil, making them easier to care for and more beneficial to local wildlife.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Disclaimer</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">The information provided by Greenquill Garden is for general informational purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the site.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-2">Customer Satisfaction</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-gray-700 mt-4 max-w-3xl mx-auto">At Greenquill Garden, we prioritize your satisfaction. Our goal is to create spaces that not only meet your expectations but exceed them, ensuring that your garden becomes a cherished part of your life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="py-10 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">Visit us at: 47 W 13th St, New York, NY 10011, USA</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms & Conditions</a>
+                <a href="#" class="footer-link">Cookies</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            <p class="mt-6">© 2023 Greenquill Garden. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

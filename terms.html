@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Greenquill Garden</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5a7247;
+            --secondary: #a8b8a0;
+            --accent: #c19a6b;
+            --light: #f8f5f0;
+            --dark: #3a3a3a;
+            --highlight: #e8d8b5;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            background-color: var(--light);
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('p3.jpeg');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            border-bottom: 12px solid var(--accent);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active:after {
+            width: 100%;
+            background-color: var(--primary);
+        }
+        
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            margin: 20px auto;
+        }
+        
+        .terms-point {
+            background-color: white;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .footer-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold">
+                    <span class="text-primary" style="font-family: 'Playfair Display', serif;">Greenquill</span>
+                    <span class="text-secondary" style="font-family: 'Playfair Display', serif;">Garden</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Home</a>
+                    <a href="privacy.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Privacy</a>
+                    <a href="terms.html" class="nav-link active text-primary transition duration-300" aria-current="page">Terms & Conditions</a>
+                    <a href="cookies.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Cookies</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-primary transition duration-300">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Terms & Conditions</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">The rules governing your use of our services</p>
+        </div>
+    </header>
+
+    <!-- Terms Content -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">Greenquill Garden Terms of Service</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-700 mt-6">Last Updated: January 15, 2023</p>
+            </div>
+
+            <div class="mb-12">
+                <p class="text-gray-700 mb-6">Welcome to Greenquill Garden! These Terms and Conditions ("Terms") govern your access to and use of our website, products, and services ("Services"). By accessing or using our Services, you agree to be bound by these Terms and our Privacy Policy.</p>
+                <p class="text-gray-700">Please read these Terms carefully before using our Services. If you do not agree with any part of these Terms, you must not use our Services. We may modify these Terms at any time, and your continued use constitutes acceptance of the modified Terms.</p>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">General Terms</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">1. Eligibility</h4>
+                    <p class="text-gray-700">Our Services are available only to individuals who are at least 18 years old and can form legally binding contracts. By using our Services, you represent that you meet these requirements. If you are accessing our Services on behalf of a company or organization, you represent that you have authority to bind them.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">2. Account Registration</h4>
+                    <p class="text-gray-700">To access certain features, you may need to register for an account. You agree to provide accurate information during registration and to keep it updated. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. Notify us immediately of any unauthorized use.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">3. Service Modifications</h4>
+                    <p class="text-gray-700">We reserve the right to modify or discontinue our Services at any time without prior notice. We may introduce new features, impose limits, or remove functionality. We shall not be liable for any modification, suspension, or discontinuance of any Service or any part thereof.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">4. User Conduct</h4>
+                    <p class="text-gray-700">You agree to use our Services only for lawful purposes and in accordance with these Terms. You must not use our Services in any way that could damage, disable, overburden, or impair our Services or interfere with any other party's use of our Services. Any unauthorized commercial use is prohibited.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">5. Intellectual Property Rights</h4>
+                    <p class="text-gray-700">All content, trademarks, service marks, trade names, logos, and other intellectual property displayed on our Services are owned by us or our licensors. No content may be copied, reproduced, republished, uploaded, posted, transmitted, or distributed without our prior written consent, except as expressly authorized.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">6. User Content</h4>
+                    <p class="text-gray-700">You retain ownership of any content you submit, post, or display ("User Content"). By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, distribute, and display such content in connection with our Services and our business.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">7. Prohibited Content</h4>
+                    <p class="text-gray-700">You must not submit content that is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, invasive of privacy, racially or ethnically objectionable, or that infringes any intellectual property rights. We reserve the right to remove any content that violates these restrictions.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">8. Feedback</h4>
+                    <p class="text-gray-700">Any feedback, comments, or suggestions you provide regarding our Services ("Feedback") becomes our sole property. We may use this Feedback for any purpose without obligation of any kind. By submitting Feedback, you waive any rights to the Feedback, including moral rights.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Purchases & Payments</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">9. Product Descriptions</h4>
+                    <p class="text-gray-700">We attempt to be as accurate as possible in describing our products and services, but we do not warrant that descriptions, pricing, or other content are complete, reliable, current, or error-free. If you receive a product that is not as described, your sole remedy is to return it for a refund.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">10. Pricing & Taxes</h4>
+                    <p class="text-gray-700">All prices are in U.S. dollars and are subject to change without notice. We are not responsible for typographical errors regarding price or other information. You are responsible for any applicable sales, use, VAT, or other taxes associated with your purchase, except for taxes on our income.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">11. Payment Methods</h4>
+                    <p class="text-gray-700">We accept various payment methods, including major credit cards and PayPal. By providing payment information, you represent that you are authorized to use the payment method. We utilize third-party payment processors and do not store your full payment card information on our servers.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">12. Order Acceptance</h4>
+                    <p class="text-gray-700">Your receipt of an order confirmation does not constitute our acceptance of your order. We reserve the right to limit or cancel quantities purchased and to refuse service to anyone for any reason at our sole discretion. In such cases, we will notify you and refund any payments.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">13. Delivery & Shipping</h4>
+                    <p class="text-gray-700">Shipping times are estimates and may vary. We are not liable for delays caused by events beyond our control, such as natural disasters or transportation delays. Risk of loss passes to you upon delivery. Some areas may have shipping restrictions or additional fees.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semold text-primary mb-3">14. Returns & Refunds</h4>
+                    <p class="text-gray-700">We accept returns of unused, unopened items within 30 days of delivery for a full refund, less shipping costs. Perishable goods cannot be returned. Special order items may be non-refundable. To initiate a return, contact our customer service. Refunds will be processed to the original payment method.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">15. Digital Products</h4>
+                    <p class="text-gray-700">Digital products, including downloads and subscriptions, are non-refundable except where required by law. You may not reverse engineer, decompile, disassemble, modify, or create derivative works from our digital products. Some digital content may require compatible hardware or software.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">16. Services & Consultations</h4>
+                    <p class="text-gray-700">Our garden consultation and design services are subject to separate service agreements. Cancellations require 48-hour notice for full refund. Late arrivals may result in shortened service time. We reserve the right to decline service if site conditions present safety hazards or if additional requirements are identified.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Intellectual Property</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">17. Copyright Ownership</h4>
+                    <p class="text-gray-700">All content on our Services, including text, graphics, logos, images, software, and the compilation of all content, is our property or the property of our licensors and is protected by copyright and other intellectual property laws. Unauthorized use may violate these laws.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">18. Trademarks</h4>
+                    <p class="text-gray-700">The Greenquill Garden name, logo, and all related names, logos, product and service names, designs, and slogans are our trademarks. You must not use such marks without our prior written permission. All other names, logos, product and service names mentioned are trademarks of their respective owners.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">19. License to Use</h4>
+                    <p class="text-gray-700">We grant you a limited, revocable, non-exclusive, non-transferable license to access and use our Services for personal, non-commercial purposes. Any unauthorized use terminates this license. You may not reproduce, distribute, modify, create derivative works of, publicly display or perform, or exploit our content.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">20. DMCA Compliance</h4>
+                    <p class="text-gray-700">We respect intellectual property rights and comply with the Digital Millennium Copyright Act (DMCA). If you believe your copyrighted work has been copied in a way that constitutes infringement, please send a notice to our designated agent with the required information as specified in the DMCA.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Prohibited Activities</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">21. Unlawful Use</h4>
+                    <p class="text-gray-700">You must not use our Services for any unlawful purpose or in any way that violates any local, state, national, or international law. This includes, but is not limited to, using our Services to engage in any form of harassment, fraud, or other illegal activities. We reserve the right to terminate your access to our Services if we suspect any unlawful use.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">22. Interference with Services</h4>
+                    <p class="text-gray-700">You must not interfere with or disrupt the security, integrity, or performance of our Services or the data contained therein. This includes attempting to gain unauthorized access to our Services, other user accounts, or computer systems or networks connected to our Services.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">23. Automated Systems</h4>
+                    <p class="text-gray-700">You must not use any automated systems, including robots, spiders, or offline readers, to access our Services in a manner that sends more request messages to our servers than a human can reasonably produce in the same period of time. This is to ensure fair access for all users.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">24. Data Mining</h4>
+                    <p class="text-gray-700">You must not collect or harvest any personally identifiable information from our Services, nor use any communication systems provided by our Services for any commercial solicitation purposes. This includes using our Services to send unsolicited emails or spam.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">25. Impersonation</h4>
+                    <p class="text-gray-700">You must not impersonate any person or entity, or falsely state or misrepresent your affiliation with a person or entity. This includes creating a false identity or account for the purpose of misleading others.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Limitation of Liability</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">26. Disclaimer of Warranties</h4>
+                    <p class="text-gray-700">Our Services are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. We do not warrant that our Services will be uninterrupted, secure, or error-free, or that any defects will be corrected. Your use of our Services is at your own risk.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">27. Limitation of Liability</h4>
+                    <p class="text-gray-700">To the fullest extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of, or inability to access or use, our Services.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">28. Indemnification</h4>
+                    <p class="text-gray-700">You agree to indemnify, defend, and hold harmless Greenquill Garden, its affiliates, and their respective officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses, including reasonable attorneys' fees, arising out of or in any way connected with your access to or use of our Services.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Governing Law</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">29. Applicable Law</h4>
+                    <p class="text-gray-700">These Terms shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law principles. Any disputes arising from these Terms shall be resolved in the courts located in New York County.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">30. Dispute Resolution</h4>
+                    <p class="text-gray-700">Any disputes arising out of or related to these Terms or your use of our Services shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association. You waive any right to a jury trial or to participate in a class action.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Changes to Terms</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">31. Modifications</h4>
+                    <p class="text-gray-700">We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on our website. Your continued use of our Services after any changes constitutes your acceptance of the new Terms.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">32. Severability</h4>
+                    <p class="text-gray-700">If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue to be valid and enforceable to the fullest extent permitted by law.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">33. Waiver</h4>
+                    <p class="text-gray-700">No waiver of any term or condition of these Terms shall be deemed a further or continuing waiver of such term or any other term, and any failure of Greenquill Garden to assert a right or provision under these Terms shall not constitute a waiver of such right or provision.</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Contact Us</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">34. How to Reach Us</h4>
+                    <p class="text-gray-700">If you have any questions about these Terms, please contact us:</p>
+                    <p class="text-gray-700">Email: support@greenquillgarden.com</p>
+                    <p class="text-gray-700">Phone: (123) 456-7890</p>
+                    <p class="text-gray-700">Address: 47 W 13th St, New York, NY 10011, USA</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-secondary mb-6">Miscellaneous</h3>
+                
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">35. Force Majeure</h4>
+                    <p class="text-gray-700">We shall not be liable for any failure to perform our obligations under these Terms if such failure results from any cause beyond our reasonable control, including, but not limited to, mechanical, electronic, or communications failure or degradation.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">36. Assignment</h4>
+                    <p class="text-gray-700">We may assign or transfer these Terms, in whole or in part, without notice to you. You may not assign or transfer these Terms or any rights or obligations under these Terms without our prior written consent.</p>
+                </div>
+
+                <div class="terms-point">
+                    <h4 class="text-xl font-semibold text-primary mb-3">37. Entire Agreement</h4>
+                    <p class="text-gray-700">These Terms, along with our Privacy Policy, constitute the entire agreement between you and Greenquill Garden regarding your use of our Services and supersede any prior agreements or understandings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="py-10 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">Visit us at: 47 W 13th St, New York, NY 10011, USA</p>
+            <p class="mb-4">Phone: (123) 456-7890</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link active">Terms & Conditions</a>
+                <a href="cookies.html" class="footer-link">Cookies</a>
+                <a href="contact.html" class="footer-link">Contact Us</a>
+            </div>
+            <p class="mt-6">© 2023 Greenquill Garden. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
